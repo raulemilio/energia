@@ -20,13 +20,12 @@ Instalar dependencias:
 
 ```bash
 sudo apt update
-sudo apt install default-jre mspdebug
+sudo apt install  mspdebug
 ```
 
 Verificar:
 
 ```bash
-java -version
 mspdebug --version
 ```
 
