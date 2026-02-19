@@ -16,7 +16,7 @@ Instalar dependencias:
 
 ```bash
 sudo apt update
-sudo apt install default-jre mspdebug
+sudo apt install mspdebug
 ```
 
 Energia debe estar previamente instalado.
