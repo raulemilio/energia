@@ -128,7 +128,3 @@ Este proyecto demuestra:
 
 ---
 
-## 📜 Licencia
-
-Uso educativo / laboratorio.
-

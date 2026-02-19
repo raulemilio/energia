@@ -20,7 +20,7 @@ Instalar dependencias:
 
 ```bash
 sudo apt update
-sudo apt install  mspdebug
+sudo apt install mspdebug
 ```
 
 Verificar:
@@ -39,13 +39,6 @@ Crear archivo de reglas:
 
 ```bash
 sudo nano /etc/udev/rules.d/99-ti-launchpad.rules
-```
-
-Agregar:
-
-```bash
-# TI MSP430 LaunchPad
-SUBSYSTEM=="usb", ATTR{idVendor}=="0451", ATTR{idProduct}=="f432", MODE="0666"
 ```
 
 Guardar y luego ejecutar:
@@ -81,7 +74,7 @@ mkdir -p ~/opt
 mv energia-1.8.10E23 ~/opt/
 ```
 
-Ejecutar:
+Ejecutar sin instalar:
 
 ```bash
 cd ~/opt/energia-1.8.10E23
@@ -175,32 +168,18 @@ Blink.ino.hex
 
 En lugar de usar el uploader interno de Energia, se recomienda usar `mspdebug`:
 
-```bash
-cd /tmp/arduino_build_xxxxxx
-mspdebug rf2500 "erase prog Blink.ino.elf"
-```
-
-Ventajas:
-- Mayor control
-- Evita problemas del uploader Java
-- Permite debug manual
-
----
-
-# 🔎 Flujo recomendado de trabajo
-
-1. Editar código en Energia
-2. Presionar ✔ Verificar
-3. Ir al directorio `/tmp/arduino_build_xxxxxx`
-4. Programar con `mspdebug`
-
-Atajo para ir al último build:
 
 ```bash
-cd $(ls -td /tmp/arduino_build_* | head -1)
+mspdebug rf2500
 ```
 
----
+```bash
+(mspdebug) prog blink.elf 
+```
+
+```bash
+(mspdebug) run
+```
 
 # 🎯 Resultado esperado
 
@@ -218,10 +197,8 @@ cd $(ls -td /tmp/arduino_build_* | head -1)
   - Verificar reglas udev
   - Confirmar idVendor / idProduct con `lsusb`
   - Revisar permisos del dispositivo
+  - Conectar todos los jumper de la placa
 
 ---
 
-# 📜 Licencia
-
-Uso educativo / laboratorio.
 
